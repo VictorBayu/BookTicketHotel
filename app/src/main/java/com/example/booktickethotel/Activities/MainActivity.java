@@ -6,14 +6,17 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.booktickethotel.Fragment.HomeFragment;
+import com.example.booktickethotel.Fragment.LoginFragment;
 import com.example.booktickethotel.Fragment.OrderFragment;
 import com.example.booktickethotel.Fragment.UserFragment;
 import com.example.booktickethotel.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         loadFragment(new HomeFragment());
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new LoginFragment())
+                .commit();
     }
     private boolean loadFragment(Fragment fragment){
         if(fragment != null){
