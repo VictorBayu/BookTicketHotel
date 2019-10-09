@@ -1,16 +1,16 @@
-package com.example.booktickethotel;
+package com.example.booktickethotel.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.booktickethotel.R;
+
+public class homeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
     }
 }
