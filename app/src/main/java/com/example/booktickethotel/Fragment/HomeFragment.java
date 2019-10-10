@@ -15,6 +15,8 @@ import com.example.booktickethotel.R;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+    private  OnFragmentInteractionListener mListener;
+
 
 
     public HomeFragment() {
@@ -27,6 +29,10 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    public interface OnFragmentInteractionListener {
+        void onFragmentInteraction();
     }
 
 }

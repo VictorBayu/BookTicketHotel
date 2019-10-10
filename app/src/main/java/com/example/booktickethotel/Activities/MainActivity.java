@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.booktickethotel.Fragment.HomeFragment;
 import com.example.booktickethotel.Fragment.LoginFragment;
@@ -15,7 +14,9 @@ import com.example.booktickethotel.Fragment.UserFragment;
 import com.example.booktickethotel.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.OnFragmentInteractionListener,
+        BottomNavigationView.OnNavigationItemSelectedListener,
+        HomeFragment.OnFragmentInteractionListener{
 
 
     @Override
@@ -58,5 +59,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
+    }
+
+    @Override
+    public void onFragmentInteraction() {
+
+    }
+
+    @Override
+    public void buttonLoginClicked() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new HomeFragment())
+                .commit();
     }
 }

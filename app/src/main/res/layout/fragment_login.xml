@@ -92,13 +92,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="182dp" />
+        app:layout_constraintGuide_begin="217dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="543dp" />
+        app:layout_constraintGuide_begin="574dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
