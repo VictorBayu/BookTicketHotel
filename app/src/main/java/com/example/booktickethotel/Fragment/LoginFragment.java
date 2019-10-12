@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.booktickethotel.Activities.NavbarBottomActivity;
 import com.example.booktickethotel.R;
 import com.example.booktickethotel.model.user;
 
@@ -77,6 +78,7 @@ public class LoginFragment extends Fragment {
                         }
                         if (cek){
                             Toast.makeText(getActivity(),"Check your account !!",Toast.LENGTH_SHORT).show();
+
                         }
                     }else {
                         Toast.makeText(getActivity(),"Check your password !!",Toast.LENGTH_SHORT).show();

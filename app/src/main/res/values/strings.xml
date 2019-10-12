@@ -12,4 +12,12 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="hotel_santika_surabaya">Hotel Santika Surabaya</string>
+    <string name="whiz_prime_hotel_semarang">Whiz Prime Hotel Semarang</string>
+    <string name="shangri_la_hotel_resort">Shangri La Hotel Resort</string>
+    <string name="hotel_harris_malang">Hotel Harris Malang</string>
+    <string name="atria_hotel_surabaya">Atria Hotel Surabaya</string>
+    <string name="beranda">Beranda</string>
+    <string name="pesanan">Pesanan</string>
+    <string name="profile">Profile</string>
 </resources>

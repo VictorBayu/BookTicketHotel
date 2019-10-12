@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.booktickethotel.Fragment.HomeFragment;
 import com.example.booktickethotel.Fragment.LoginFragment;
 import com.example.booktickethotel.R;
 
@@ -21,6 +22,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
-        },2000);
+        },2500);
     }
 }
