@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +19,15 @@ import com.example.booktickethotel.model.user;
 import java.util.ArrayList;
 
 import static android.app.PendingIntent.getActivity;
+import static android.widget.Toast.LENGTH_SHORT;
 import static com.example.booktickethotel.R.layout.activity_login;
 
 public class LoginActivity extends AppCompatActivity {
     private View.OnClickListener mListener;
-    String userr,pass;
+    private EditText name,password;
+    private  TextView info;
+    private ImageView login;
+    private int counter=3;
 
     public LoginActivity() {
     }
@@ -30,29 +35,34 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activity_login);
-        ImageView btnLogin = findViewById(R.id.button_login);
-        final EditText username = findViewById(R.id.enter_username);
-        EditText password = findViewById(R.id.enter_password);
-        final TextView User = findViewById(R.id.textView4);
-        final TextView Pass = findViewById(R.id.textView5);
+        setContentView(R.layout.activity_login);
+        name = findViewById(R.id.enter_username);
+        password = findViewById(R.id.enter_password);
+        info = findViewById(R.id.userInfo);
+        login = findViewById(R.id.button_login);
+        info.setText("Number of attempts remaining: 5");
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validate(name.getText().toString(),password.getText().toString());
+            }
+        });
 //        final ArrayList<user> listUser = new ArrayList<user>();
 //        listUser.add(new user("victor","victor"));
 //        listUser.add(new user("Victor","Victor"));
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                userr = User.getText().toString();
-                pass = Pass.getText().toString();
-                Bundle b = new Bundle();
-                b.putString("u",userr);
-                b.putString("p",pass);
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-               intent.putExtras(b);
-                startActivity(intent);
+    }
+    private void validate(String Username, String Userpass){
+        if((Username.equals("victor")) && (Userpass.equals("victor"))){
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+            finish();
+        }else{
+            counter--;
+            info.setText("Number of attempt remaining: " + counter);
+            if(counter==0){
+                login.setEnabled(false);
             }
-        });
+        }
     }
 
 
