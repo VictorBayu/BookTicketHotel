@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.enter_password);
         info = findViewById(R.id.userInfo);
         login = findViewById(R.id.button_login);
-        info.setText("Number of attempts remaining: 5");
+        info.setText("Number of attempts remaining: 3");
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

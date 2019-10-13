@@ -8,8 +8,7 @@
     android:background="@color/color4">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="10dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,9 +16,11 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/hotel1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="6dp"
+                android:onClick="handlerHotel1"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="8dp"
@@ -57,11 +58,13 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/hotel2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:onClick="handlerHotel2"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -96,11 +99,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/hotel3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -135,11 +139,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/hotel4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -174,11 +179,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/hotel5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
