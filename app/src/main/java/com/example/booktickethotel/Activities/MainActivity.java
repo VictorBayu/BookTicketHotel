@@ -21,17 +21,17 @@ import com.example.booktickethotel.Fragment.hotel.Hotel5Fragment;
 import com.example.booktickethotel.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
         OrderFragment.OnFragmentInteractionListener,
-        Hotel1Fragment.OnFragmentInteractionListener,
-        Hotel2Fragment.OnFragmentInteractionListener,
-        Hotel3Fragment.OnFragmentInteractionListener,
-        Hotel4Fragment.OnFragmentInteractionListener,
-        Hotel5Fragment.OnFragmentInteractionListener
+        Hotel1Fragment.OnFragmentInteractionListener
 {
     private UserFragment userFragment;
+    private  final ArrayList <Hotel> listhotel = new ArrayList<Hotel>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,32 +96,70 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     public void handlerHotel1(View view) {
+        Hotel hotel = new Hotel("Hotel Santika Surabaya","2800000");
+        Hotel1Fragment hotel1Fragment = new Hotel1Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("DATA", hotel);
+        hotel1Fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new Hotel1Fragment())
+                .replace(R.id.fragment_container, hotel1Fragment)
+                .addToBackStack(null)
                 .commit();
     }
 
+//    private void loadHotel() {
+//        listhotel.add(new Hotel("Hotel Santika Surabaya","2800000"));
+//        listhotel.add(new Hotel("Whiz Prime Hotel Semarang","2650000"));
+//        listhotel.add(new Hotel("Shangri La Hotel Resort","3200000"));
+//        listhotel.add(new Hotel("Atria Hotel Surabaya","2300000"));
+//        listhotel.add(new Hotel("Hotel Harris Malang","1850000"));
+//    }
+
     public void handlerHotel2(View view) {
+        Hotel hotel = new Hotel("Whiz Prime Hotel Semarang","2650000");
+        Hotel1Fragment hotel1Fragment = new Hotel1Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("DATA",hotel);
+        hotel1Fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new Hotel2Fragment())
+                .replace(R.id.fragment_container, hotel1Fragment)
+                .addToBackStack(null)
                 .commit();
     }
 
     public void handlerHotel3(View view) {
+        Hotel hotel = new Hotel("Shangri La Hotel Resort","3200000");
+        Hotel1Fragment hotel1Fragment = new Hotel1Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("DATA",hotel);
+        hotel1Fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new Hotel3Fragment())
+                .replace(R.id.fragment_container, hotel1Fragment)
+                .addToBackStack(null)
                 .commit();
     }
 
     public void handlerHotel4(View view) {
+        Hotel hotel = new Hotel("Atria Hotel Surabaya","2300000");
+        Hotel1Fragment hotel1Fragment = new Hotel1Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("DATA",hotel);
+        hotel1Fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new Hotel4Fragment())
+                .replace(R.id.fragment_container, hotel1Fragment)
+                .addToBackStack(null)
                 .commit();
     }
 
     public void handlerHotel5(View view) {
+        Hotel hotel = new Hotel("Hotel Harris Malang","1850000");
+        Hotel1Fragment hotel1Fragment = new Hotel1Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("DATA",hotel);
+        hotel1Fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new Hotel1Fragment())
+                .replace(R.id.fragment_container, hotel1Fragment)
+                .addToBackStack(null)
                 .commit();
     }
 }

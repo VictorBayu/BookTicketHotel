@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.booktickethotel.Activities.Hotel;
 import com.example.booktickethotel.R;
 
 /**
@@ -21,6 +24,7 @@ import com.example.booktickethotel.R;
 public class Hotel1Fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    TextView nama,harga;
 
     public Hotel1Fragment() {
         // Required empty public constructor
@@ -31,7 +35,17 @@ public class Hotel1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hotel1, container, false);
+        View view =  inflater.inflate(R.layout.fragment_hotel1, container, false);
+
+        Bundle bundle = this.getArguments();
+        Hotel hotel = (Hotel) bundle.getParcelable("DATA");
+
+
+        nama = view.findViewById(R.id.namaHotel);
+        nama.setText(hotel.getNamaHotel());
+        harga = view.findViewById(R.id.harga_hotel);
+        harga.setText(hotel.getHarga());
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
