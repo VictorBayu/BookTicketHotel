@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,15 +37,21 @@ public class Hotel1Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_hotel1, container, false);
-
+        Button buttonBooking = view.findViewById(R.id.tbl_booking);
         Bundle bundle = this.getArguments();
-        Hotel hotel = (Hotel) bundle.getParcelable("DATA");
-
-
+        final Hotel hotel = (Hotel) bundle.getParcelable("DATA");
         nama = view.findViewById(R.id.namaHotel);
         nama.setText(hotel.getNamaHotel());
         harga = view.findViewById(R.id.harga_hotel);
         harga.setText(hotel.getHarga());
+        buttonBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListener!=null){
+                    mListener.onOrderClicked(hotel);
+                }
+            }
+        });
         return view;
     }
 
@@ -85,5 +92,7 @@ public class Hotel1Fragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+
+        void onOrderClicked(Hotel hotel);
     }
 }

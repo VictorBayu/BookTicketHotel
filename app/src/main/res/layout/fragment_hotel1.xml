@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginTop="92dp"
-        android:text="TextView"
+        android:text="@string/textview"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginTop="68dp"
-        android:text="TextView"
+        android:text="@string/textview"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/namaHotel" />
 
@@ -40,11 +40,10 @@
         android:layout_marginBottom="156dp"
         android:background="@color/color6"
         android:fontFamily="@font/alegreya_bold"
-        android:text="Booking"
+        android:text="@string/booking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.booktickethotel.Activities.Hotel;
 import com.example.booktickethotel.R;
 
 /**
@@ -22,6 +23,7 @@ import com.example.booktickethotel.R;
 public class OrderFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    private Hotel hotel;
 
     public OrderFragment() {
         // Required empty public constructor
@@ -31,16 +33,15 @@ public class OrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText(R.string.hello_blank_fragment);
-        return textView;
+        View view = inflater.inflate(R.layout.fragment_order,container,false);
+        final TextView textNamaHotel = view.findViewById(R.id.text_nama_hotel);
+        final TextView textHargaHotel = view.findViewById(R.id.text_harga_hotel);
+        textNamaHotel.setText(hotel.getNamaHotel());
+        textHargaHotel.setText(hotel.getHarga());
+        return  view;
     }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 
     @Override

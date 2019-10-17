@@ -20,4 +20,6 @@
     <string name="beranda">Beranda</string>
     <string name="pesanan">Pesanan</string>
     <string name="profile">Profile</string>
+    <string name="booking">Booking</string>
+    <string name="textview">TextView</string>
 </resources>

@@ -14,10 +14,6 @@ import com.example.booktickethotel.Fragment.HomeFragment;
 import com.example.booktickethotel.Fragment.hotel.Hotel1Fragment;
 import com.example.booktickethotel.Fragment.OrderFragment;
 import com.example.booktickethotel.Fragment.UserFragment;
-import com.example.booktickethotel.Fragment.hotel.Hotel2Fragment;
-import com.example.booktickethotel.Fragment.hotel.Hotel3Fragment;
-import com.example.booktickethotel.Fragment.hotel.Hotel4Fragment;
-import com.example.booktickethotel.Fragment.hotel.Hotel5Fragment;
 import com.example.booktickethotel.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,9 +23,12 @@ public class MainActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
         OrderFragment.OnFragmentInteractionListener,
-        Hotel1Fragment.OnFragmentInteractionListener
+        Hotel1Fragment.OnFragmentInteractionListener,
+        UserFragment.OnFragmentInteractionListener
 {
     private UserFragment userFragment;
+    private  Hotel1Fragment hotel1Fragment;
+    private OrderFragment orderFragment;
     private  final ArrayList <Hotel> listhotel = new ArrayList<Hotel>();
 
 
@@ -38,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadFragment(new HomeFragment());
+        hotel1Fragment = new Hotel1Fragment();
         userFragment = UserFragment.newInstance("Victor");
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
@@ -74,6 +74,16 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void onOrderClicked(Hotel hotel) {
+        orderFragment = new OrderFragment();
+        orderFragment.setHotel(hotel);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, orderFragment)
+                .commit();
+    }
+
+
+    @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
@@ -106,14 +116,6 @@ public class MainActivity extends AppCompatActivity implements
                 .addToBackStack(null)
                 .commit();
     }
-
-//    private void loadHotel() {
-//        listhotel.add(new Hotel("Hotel Santika Surabaya","2800000"));
-//        listhotel.add(new Hotel("Whiz Prime Hotel Semarang","2650000"));
-//        listhotel.add(new Hotel("Shangri La Hotel Resort","3200000"));
-//        listhotel.add(new Hotel("Atria Hotel Surabaya","2300000"));
-//        listhotel.add(new Hotel("Hotel Harris Malang","1850000"));
-//    }
 
     public void handlerHotel2(View view) {
         Hotel hotel = new Hotel("Whiz Prime Hotel Semarang","2650000");
@@ -160,6 +162,13 @@ public class MainActivity extends AppCompatActivity implements
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, hotel1Fragment)
                 .addToBackStack(null)
+                .commit();
+    }
+
+    public void handlerBooking(View view) {
+        OrderFragment orderFragment = new OrderFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container,orderFragment)
                 .commit();
     }
 }
