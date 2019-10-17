@@ -26,10 +26,8 @@ public class MainActivity extends AppCompatActivity implements
         Hotel1Fragment.OnFragmentInteractionListener,
         UserFragment.OnFragmentInteractionListener
 {
+    //private  final ArrayList <Hotel> listhotel = new ArrayList<Hotel>();
     private UserFragment userFragment;
-    private  Hotel1Fragment hotel1Fragment;
-    private OrderFragment orderFragment;
-    private  final ArrayList <Hotel> listhotel = new ArrayList<Hotel>();
 
 
     @Override
@@ -37,13 +35,22 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadFragment(new HomeFragment());
-        hotel1Fragment = new Hotel1Fragment();
-        userFragment = UserFragment.newInstance("Victor");
+        userFragment = UserFragment.newInstance("Victor Bayu");
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container,new HomeFragment())
                 .commit();
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.action_order){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, userFragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
+        return super.onOptionsItemSelected(item);
     }
     private boolean loadFragment(Fragment fragment){
         if (fragment != null) {
@@ -55,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements
         }
         return false;
     }
-
     @Override
     public void onFragmentInteraction() {
 
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onOrderClicked(Hotel hotel) {
-        orderFragment = new OrderFragment();
+        OrderFragment orderFragment = new OrderFragment();
         orderFragment.setHotel(hotel);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, orderFragment)
@@ -162,13 +168,6 @@ public class MainActivity extends AppCompatActivity implements
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, hotel1Fragment)
                 .addToBackStack(null)
-                .commit();
-    }
-
-    public void handlerBooking(View view) {
-        OrderFragment orderFragment = new OrderFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container,orderFragment)
                 .commit();
     }
 }

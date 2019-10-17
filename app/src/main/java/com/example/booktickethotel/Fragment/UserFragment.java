@@ -23,7 +23,7 @@ public class UserFragment extends Fragment {
     private static final String ARG_NAME = "name";
 
     // TODO: Rename and change types of parameters
-    private String name;
+    private String name ="";
 
 
     public UserFragment() {
@@ -51,7 +51,7 @@ public class UserFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            name = getArguments().getString(ARG_NAME);
+            this.name = getArguments().getString(ARG_NAME);
         }
     }
 
@@ -60,7 +60,7 @@ public class UserFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user,container,false);
         TextView nameText = view.findViewById(R.id.textName);
-        nameText.setText(name);
+        nameText.setText(this.name);
         return view;
     }
 
